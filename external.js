@@ -1,3 +1,5 @@
+
+
 // 65
 // console.log('Hello World :):)');
 
@@ -321,16 +323,79 @@
 
 // Scoping & Lexical scoping & Hosting
 
-var a = 'hello';
-first();
+// var a = 'hello';
+// first();
 
-function first(){
-    var b = 'hi';
-    second();
+// function first(){
+//     var b = 'hi';
+//     second();
 
-    function second(){
-        var c ='hey';
-        console.log( a + b + c );
+//     function second(){
+//         var c ='hey';
+//         console.log( a + b + c );
+//     }
+
+// }
+
+
+// Example to show the differece btw execution stack and scope chain
+
+// var a = 'hello';
+// first();
+
+// function first(){
+//     var b = 'hi';
+//     second();
+
+//     function second(){
+//         var c ='hey';
+//         third();
+//     }
+
+// }
+
+// function third(){
+//     var d = 'princi';
+//     // console.log(c);
+//     console.log(a+d);
+// }
+
+
+// this keyword
+
+// console.log(this);
+
+// calculateAge(1996);
+
+// function calculateAge(year){
+//     console.log(2020-year);
+//     console.log(this);
+// }
+
+var p ={
+    name:'princi',
+    birth:1995,
+    calculateAge:function(){
+        console.log(this);
+        console.log(this.birth);
+        
+
+
+        function innerFunction(){
+            console.log(this);
+        }
+        innerFunction();
     }
-
 }
+p.calculateAge();
+
+
+
+var G = {
+    name:'Gupta',
+    year: 1996
+};
+
+// methodg barowing
+G.calculateAge = p.calculateAge;
+G.calculateAge();
