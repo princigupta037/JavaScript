@@ -372,30 +372,32 @@
 //     console.log(this);
 // }
 
-var p ={
-    name:'princi',
-    birth:1995,
-    calculateAge:function(){
-        console.log(this);
-        console.log(this.birth);
+// var p ={
+//     name:'princi',
+//     birth:1995,
+//     calculateAge:function(){
+//         console.log(this);
+//         console.log(this.birth);
         
 
 
-        function innerFunction(){
-            console.log(this);
-        }
-        innerFunction();
-    }
-}
-p.calculateAge();
+//         function innerFunction(){
+//             console.log(this);
+//         }
+//         innerFunction();
+//     }
+// }
+// p.calculateAge();
 
 
 
-var G = {
-    name:'Gupta',
-    year: 1996
-};
+// var G = {
+//     name:'Gupta',
+//     year: 1996
+// };
 
-// methodg barowing
-G.calculateAge = p.calculateAge;
-G.calculateAge();
+// // methodg barowing
+// G.calculateAge = p.calculateAge;
+// G.calculateAge();
+
+// 
