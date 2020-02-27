@@ -401,52 +401,143 @@
 // G.calculateAge = p.calculateAge;
 // G.calculateAge();
 
- # Constructor function
+//  # Constructor function
 
-var Person = function(name , yearOfBirth ,job){
-    this.name= name;
-    this.yearOfBirth=yearOfBirth;
-    this.job=job;
-} 
+// var Person = function(name , yearOfBirth ,job){
+//     this.name= name;
+//     this.yearOfBirth=yearOfBirth;
+//     this.job=job;
+// } 
 
 
-Person.prototype.calculateAge = function(){
-    console.log(2020 - this.yearOfBirth);
+// Person.prototype.calculateAge = function(){
+//     console.log(2020 - this.yearOfBirth);
+// }
+
+
+// Person.prototype.lastName = 'Gupta';
+
+// var princi = new Person('princi',1995,'Developer');
+// var pink = new Person('pink',1996,'teacher');
+
+
+// princi.calculateAge();
+// pink.calculateAge();
+
+
+// #  Inhertance
+
+// console.log(princi.lastName);
+
+
+
+
+// # Object.create
+
+// var personProto = {
+//     calculateAge:function(){
+//         console.log(2020-this.yearOfBirth);
+//     }
+// };
+// var princi = Object.create(personProto);
+// princi.name = 'princi';
+// princi.yearOfBirth=1995;
+// princi.job='Developer';
+
+// var pink = Object.create(personProto,
+// {
+//     name: { value:'pink'} ,
+//     yearOfBirth:{ value:1996} ,
+//     job : { value : 'teacher' }
+// });
+// 
+
+# Primitive vs Object
+
+# Primitive
+
+var a=23;
+var b=a;
+
+a=30;
+console.log(a);
+console.log(b);
+
+# Objects
+
+var obj1 ={
+    name:'princi',
+    age:24
+};
+
+var obj2 = obj1;
+obj2.age=30;
+console.log(obj1.age);
+console.log(obj2.age);
+
+# Functions
+
+var age = 27;
+var obj = {
+    name:'princi',
+    city:'banglore'
 }
 
+function change(a,b){
+    a= 30;
+    b.city = 'goa'
+}
 
-Person.prototype.lastName = 'Gupta';
+change(age,obj);
 
-var princi = new Person('princi',1995,'Developer');
-var pink = new Person('pink',1996,'teacher');
+console.log(age);
+console.log(obj.city);
 
+# Passing Function  as argument
 
-princi.calculateAge();
-pink.calculateAge();
+var years = [1995,1996,1997,1998];
 
-
-#  Inhertance
-
-console.log(princi.lastName);
-
-
-
-
-# Object.create
-
-var personProto = {
-    calculateAge:function(){
-        console.log(2020-this.yearOfBirth);
+function arrayCalc(arr , fn){
+    var arrRes =[];
+    for (var i = 0 ; i < arr.length ; i++)
+    {
+        arrRes.push(fn(arr[i]));
     }
-};
-var princi = Object.create(personProto);
-princi.name = 'princi';
-princi.yearOfBirth=1995;
-princi.job='Developer';
+    return arrRes;
+}
 
-var pink = Object.create(personProto,
-{
-    name: { value:'pink'} ,
-    yearOfBirth:{ value:1996} ,
-    job : { value : 'teacher' }
-});
+function calculateAge(el){
+    return  2020-el;
+}
+
+var ages = arrayCalc(years,calculateAge);
+console.log(ages);
+
+# Functions returning function
+
+function interviewQ(job){
+    if (job === 'deisgner'){
+        return function(name){
+            console.log(name + 'wht u design ?');
+        }
+    } else if (job === 'teacher'){
+        return function(name){
+            console.log('which subject ?');
+        }
+    } else {
+        return function(name){
+            console.log('Hello');
+        }
+    }
+}
+
+var teacherQ =
+interviewQ('teacher');
+var designerQ=
+interviewQ('designer')
+teacherQ('princi');
+designerQ('princi')
+
+
+
+
