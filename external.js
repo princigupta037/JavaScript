@@ -1,5 +1,6 @@
 
 
+
 // 65
 // console.log('Hello World :):)');
 
@@ -400,4 +401,52 @@
 // G.calculateAge = p.calculateAge;
 // G.calculateAge();
 
-// 
+ # Constructor function
+
+var Person = function(name , yearOfBirth ,job){
+    this.name= name;
+    this.yearOfBirth=yearOfBirth;
+    this.job=job;
+} 
+
+
+Person.prototype.calculateAge = function(){
+    console.log(2020 - this.yearOfBirth);
+}
+
+
+Person.prototype.lastName = 'Gupta';
+
+var princi = new Person('princi',1995,'Developer');
+var pink = new Person('pink',1996,'teacher');
+
+
+princi.calculateAge();
+pink.calculateAge();
+
+
+#  Inhertance
+
+console.log(princi.lastName);
+
+
+
+
+# Object.create
+
+var personProto = {
+    calculateAge:function(){
+        console.log(2020-this.yearOfBirth);
+    }
+};
+var princi = Object.create(personProto);
+princi.name = 'princi';
+princi.yearOfBirth=1995;
+princi.job='Developer';
+
+var pink = Object.create(personProto,
+{
+    name: { value:'pink'} ,
+    yearOfBirth:{ value:1996} ,
+    job : { value : 'teacher' }
+});
